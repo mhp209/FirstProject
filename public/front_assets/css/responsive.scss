@@ -1,0 +1,465 @@
+@media screen and (max-width: 576px){
+    #navbar{
+        top: 0px;
+        position: fixed;
+        width: 100%;
+    }
+    #navbar .navbar .product a {
+        margin-bottom: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-transform: capitalize;
+    }
+    #navbar .navbar .profile{
+        padding: 0 12px;
+    }
+    #navbar .navbar .profile li .dropdown-menu {
+        left: 0;
+    }
+    #navbar .navbar .cart-icon{
+        padding: 0 12px;
+    }
+    #navbar .navbar .profile li .dropdown-menu[data-bs-popper]{
+        left: 0;
+    }
+    #navbar .navbar .cart-icon a .cart-count{
+        left: -8px;
+        right: 0px;
+        position: relative;
+    }
+    #navbar .navbar .dropdown-menu{
+        border: none;
+    }
+    .loader-main{
+        min-height: 100vh;
+        height: 0px;
+    }
+    #hero-section-slider{
+        padding: 100px 0 0px 0;
+    }
+    #hero-section-slider .geek1 p{
+        font-size: 18px;
+    }
+    #about-road-sathi-section .about-road-sathi-wrapper .benefits{
+        display: block;
+    }
+    #about-road-sathi-section video{
+        width: 350px;
+    }
+    // #hero-section-slider .promo-animate{
+    //     width: 300px;
+    //     height: 300px;
+    // }
+    #hero-section-slider .pa__browser{
+        transform: translate(0%, 170%);
+    }
+    #hero-section-slider .pa__map {
+        transform: translate(0%, -20%);
+    }
+    #hero-section-slider .pa__db {
+        transform: translate(0%, -145%);
+    }
+    @keyframes promo-browser {
+        0% {
+          transform: translate(0%, 0%);
+        }
+        50% {
+          transform: translate(0%, 85%);
+        }
+        to {
+          transform: translate(0%, 170%);
+        }
+    }
+
+    @keyframes promo-map {
+        0% {
+          opacity: 0;
+          transform: translate(0%, 0%);
+        }
+        50% {
+          opacity: 0.1;
+          transform: translate(0%, -10%);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0%, -20%);
+        }
+    }
+
+    @keyframes promo-db {
+        0% {
+        opacity: 0%;
+          transform: translate(0%, 0%);
+        }
+        50% {
+            opacity: 0%;
+          transform: translate(0%, -72%);
+        }
+        100% {
+            opacity:100%;
+          transform: translate(0%, -145%);
+        }
+    }
+    #product-details-wrapper .quantity-wrapper input{
+        width: 20%;
+    }
+    #services-section .tab{
+        display: none;
+    }
+    #services-section .tabcontent{
+        box-shadow: none !important;
+        margin-top: 0;
+    }
+    #about-road-sathi-section .about-road-sathi-wrapper h1{
+        text-align: center;
+    }
+    #about-road-sathi-section video{
+        width: 350px;
+    }
+    #about-road-sathi-section .images{
+        text-align: center;
+    }
+    #about-road-sathi-section .images .pa-img{
+        width: 80px;
+    }
+    #about-road-sathi-section .images .pb{
+        width: 80px;
+    }
+    #about-road-sathi-section .images .pb-images{
+        width: 80px;
+    }
+    #about-road-sathi-section .images .pb-img-1{
+        width: 70px;
+    }
+    #services-section .tabcontent .images{
+        display: block;
+    }
+
+    #services-section .tabcontent .images img {
+        width:  430px;
+        height: 180px;
+        margin-bottom: 14px;
+    }
+
+    #services-section #parking {
+        display: block;
+        padding: 20px;
+        text-align: center;
+        background: #e5f3ff;
+        border-radius: 28px;
+        margin-bottom: 20px;
+        box-shadow: transparent;
+    }
+    #services-section #notlocked {
+        display: block !important;
+        padding: 20px;
+        text-align: center;
+        background: #e5f3ff;
+        border-radius: 28px;
+        margin-bottom: 20px;
+    }
+    #services-section #accident {
+        display: block !important;
+        padding: 20px;
+        text-align: center;
+        background: #e5f3ff;
+        border-radius: 28px;
+        margin-bottom: 20px;
+    }
+    #services-section #tow {
+        display: block !important;
+        padding: 20px;
+        text-align: center;
+        background: #e5f3ff;
+        border-radius: 28px;
+        margin-bottom: 20px;
+    }
+    #services-section #personal {
+        display: block !important;
+        padding: 20px;
+        text-align: center;
+        background: #e5f3ff;
+        border-radius: 28px;
+        margin-bottom: 20px;
+    }
+    #services-section #emergency {
+        display: block !important;
+        padding: 20px;
+        text-align: center;
+        background: #e5f3ff;
+        border-radius: 28px;
+        margin-bottom: 20px;
+        box-shadow: none;
+        box-shadow: none !important;
+        margin-top: 0;
+    }
+    #footer #footer-row p{
+        text-align: center;
+    }
+    #footer #footer-row .terms-wrapper{
+        text-align: center;
+    }
+    #testimonials-slider .slick-prev{
+        display: none !important;
+    }
+    #testimonials-slider .slick-next{
+        display: none !important;
+    }
+    #testimonials-slider-wrapper .slick-dotted .slick-slider{
+        margin-bottom: 0;
+    }
+    #about-us-section{
+        padding: 40px 0 40px 0;
+    }
+    #about-us-section .images{
+        text-align: center;
+    }
+    #about-us-section .images .pa-img{
+        width: 80px;
+    }
+    #about-us-section .images .pb{
+        width: 80px;
+    }
+    #about-us-section .images .pb-images{
+        width: 80px;
+    }
+    #about-us-section .images .pb-img-1{
+        width: 70px;
+    }
+    #loing-form .form-wrapper{
+        margin-top: 80px;
+    }
+    #loing-form .images{
+        display: none;
+    }
+    #add-cart-section{
+        padding: 80px 0 40px 0;
+    }
+    #registration-form {
+        padding: 100px 0 40px 0;
+    }
+    #registration-form .images{
+        display: none;
+    }
+    #request-call-back-form {
+        padding: 100px 0 40px 0;
+    }
+    #my-account-section{
+        padding: 100px 0 40px 0;
+    }
+    #my-account-section .side-bar-wrapper{
+        display: block;
+    }
+    #my-account-section .side-bar-wrapper .images{
+        text-align: center;
+    }
+    #my-account-section .side-bar-wrapper .username h5{
+        text-align: center;
+    }
+    #my-account-section .side-bar-wrapper .log-out-btn{
+        padding: 14px 0;
+    }
+    #my-account-section .side-bar-wrapper .tab-content{
+        text-align: center;
+    }
+    #my-account-section .side-bar-wrapper .tab-content ul{
+        justify-content: center;
+        margin-top: 18px;
+        display: block;
+    }
+    #my-account-section .side-bar-wrapper .tab-content ul li{
+        padding: 0;
+        margin-bottom: 12px;
+    }
+    #my-account-section .side-bar-wrapper .tab-content ul li a{
+        padding: 6px 24px;
+        border: none;
+    }
+    #my-account-section .user-datelis-wrapper{
+        display: block;
+    }
+    #my-account-section .user-datelis-wrapper .images{
+        display: none;
+    }
+    #order-section{
+        padding: 100px 0 40px 0;
+    }
+    #order-section .side-bar-wrapper{
+        display: block;
+    }
+    #order-section .side-bar-wrapper .images{
+        text-align: center;
+    }
+    #order-section .side-bar-wrapper .username h5{
+        text-align: center;
+    }
+    #order-section .side-bar-wrapper .log-out-btn{
+        padding: 14px 0;
+    }
+    #order-section .side-bar-wrapper .tab-content ul{
+        justify-content: center;
+        margin-top: 18px;
+        display: block;
+        text-align: center;
+    }
+    #order-section .side-bar-wrapper .tab-content ul li{
+        padding: 0;
+        margin-bottom: 12px;
+    }
+    #order-section .side-bar-wrapper .tab-content ul li a{
+        padding: 8px 28px;
+        border: none;
+    }
+    #my-vechicle-section{
+        padding: 100px 0 40px 0;
+    }
+    #my-vechicle-section .side-bar-wrapper{
+        display: block;
+    }
+    #my-vechicle-section .side-bar-wrapper .images{
+        text-align: center;
+    }
+    #my-vechicle-section .side-bar-wrapper .username h5{
+        text-align: center;
+    }
+    #my-vechicle-section .side-bar-wrapper .log-out-btn{
+        padding: 14px 0;
+    }
+    #my-vechicle-section .side-bar-wrapper .tab-content ul{
+        justify-content: center;
+        margin-top: 18px;
+        display: block;
+        text-align: center;
+    }
+    #my-vechicle-section .side-bar-wrapper .tab-content ul li{
+        padding: 0;
+        margin-bottom: 12px;
+    }
+    #my-vechicle-section .side-bar-wrapper .tab-content ul li a{
+        padding: 8px 28px;
+        border: none;
+    }
+    #link-vehicle-wrapper{
+        padding: 40px 0 40px 0;
+    }
+    #link-vehicle-wrapper .side-bar-wrapper{
+        display: block;
+    }
+    #link-vehicle-wrapper .side-bar-wrapper .log-out-btn{
+        padding: 14px 0;
+    }
+    #my-vechicle-section .user-datelis-wrapper .card{
+        margin-top: 36px;
+    }
+    #my-account-section .user-datelis-wrapper .first-name-wrapper{
+        position: relative;
+        display: block;
+        padding: 0;
+    }
+    #my-account-section .user-datelis-wrapper .first-name-wrapper .mobile-number{
+        margin-top: 36px;
+    }
+    #my-account-section .user-datelis-wrapper .first-name-wrapper .email-wrapper{
+        margin-top: 36px;
+    }
+    #cart-section{
+        padding: 40px 0 40px 0;
+    }
+    #cart-section .cart-details-wrapper{
+        text-align: center;
+    }
+    #cart-section .item-wrapper{
+        display: block;
+    }
+    #cart-section .item-wrapper img{
+        width: 250px;
+        padding-bottom: 8px;
+    }
+    #cart-section .item-wrapper .quantity-wrapper .delete-btn img{
+        padding-bottom: 0;
+    }
+    #cart-section .summery{
+        text-align: center;
+    }
+    #about-us-banner{
+        padding: 100px 0 40px 0;
+    }
+    #vision-mission-section .vision-wrapper{
+        display: block;
+    }
+    #user-vehicle-details{
+        padding: 100px 0 40px 0;
+    }
+    #user-vehicle-datelis-wrapper .details-show-wrapper .details-wrapper{
+        justify-content: center;
+    }
+    #user-vehicle-datelis-wrapper .details-show-wrapper .details-wrapper .owner-name{
+        padding: 0 14px;
+    }
+    #user-vehicle-datelis-wrapper .details-show-wrapper .details-wrapper .bar-code-wrapper{
+        padding: 0 14px;
+    }
+    #user-vehicle-datelis-wrapper .details-show-wrapper .details-wrapper .mobile-num{
+        padding: 0 14px;
+    }
+    #user-vehicle-datelis-wrapper .details-show-wrapper .details-wrapper-2{
+        justify-content: center;
+    }
+    #user-vehicle-datelis-wrapper .details-show-wrapper .details-wrapper-2 .owner-name{
+        padding: 0 14px;
+    }
+    #user-vehicle-datelis-wrapper .details-show-wrapper .details-wrapper-2 .bar-code-wrapper{
+        padding: 0 14px;
+    }
+    #user-vehicle-datelis-wrapper .details-show-wrapper .details-wrapper-2 .mobile-num{
+        padding: 0 14px;
+    }
+    #checkout-banner{
+        padding: 40px 0;
+    }
+    #checkout-section h3{
+        text-align: center;
+    }
+    #checkout-section .summery{
+        text-align: center;
+    }
+    #privacy-policy-section{
+        padding: 100px 0 40px 0;
+    }
+    #address_frm{
+        padding: 12px 0 0 0;
+    }
+    #checkout-section .billing-datelis-wrapper .continue-to-payment-btn{
+        display: flex;
+        margin-bottom: 24px;
+    }
+    #request-call-back-form .request-call-back-form-wrapper .images{
+        display: none;
+    }
+    #add-address-form .images{
+        display: none;
+    }
+    #product-details-wrapper .product-details .benefits{
+        display: block;
+    }
+    .modal .modal-content .modal-body .promo-code-box input{
+        width: 62%;
+    }
+    #link-vehicle-wrapper h3{
+        padding: 10px 0;
+    }
+    #add-address-form {
+        padding: 100px 0 40px;
+    }
+    #hire-cab-form-section .section-title{
+        padding: 12px 0;
+        h1{
+            padding: 0;
+        }
+    }
+}
+@media screen and (max-width: 1024px){
+
+}
+

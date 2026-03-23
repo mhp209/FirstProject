@@ -47,6 +47,7 @@ jobs:
     # ✅ Run Laravel commands inside container
     - name: Run Tests / Setup
       run: |
+        docker exec app_container cp .env.example .env
         docker exec app_container php artisan key:generate
         docker exec app_container php artisan migrate --force
 

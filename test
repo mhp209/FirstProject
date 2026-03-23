@@ -1,0 +1,21 @@
+cd C:\xampp\htdocs\roadsathi-rutika\roadsathi-rutika
+
+
+docker-compose up -d --build
+
+docker exec -it roadsathi_app bash
+
+
+
+composer config --global process-timeout 2000
+composer install --prefer-dist --no-dev --no-progress
+
+
+for restrt
+-------------------------
+
+docker-compose down
+docker-compose up -d --build
+
+----------------------
+

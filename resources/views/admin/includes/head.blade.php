@@ -1,6 +1,6 @@
 <!-- Favicon -->
 @php
-    $svgFile = asset('admin_assets/img/favicon.svg');
+    $svgFile = public_path('admin_assets/img/favicon.svg');
     $svgContent = file_get_contents($svgFile);
     $base64Encoded = 'data:image/svg+xml;base64,' . base64_encode($svgContent);
 @endphp

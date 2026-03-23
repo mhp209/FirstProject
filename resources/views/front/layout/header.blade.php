@@ -9,7 +9,7 @@
     <title>Road Sathi</title>
 
     @php
-    $svgFile = asset('front_assets/images/favicon.svg');
+    $svgFile = public_path('front_assets/images/favicon.svg');
     $svgContent = file_get_contents($svgFile);
     $base64Encoded = 'data:image/svg+xml;base64,' . base64_encode($svgContent);
     @endphp

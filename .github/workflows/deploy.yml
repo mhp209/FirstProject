@@ -105,12 +105,26 @@ jobs:
       run: sleep 25
 
     # ✅ Setup Laravel inside container
+    # - name: Laravel Setup
+      # run: |
+      #   docker exec roadsathi_app cp .env.example .env
+      #   docker exec roadsathi_app composer install
+      #   docker exec roadsathi_app php artisan key:generate
+      #   docker exec roadsathi_app php artisan migrate --force
+
     - name: Laravel Setup
       run: |
         docker exec roadsathi_app cp .env.example .env
+
+        docker exec roadsathi_app sed -i 's/DB_DATABASE=.*/DB_DATABASE=roadsathi/' .env
+        docker exec roadsathi_app sed -i 's/DB_USERNAME=.*/DB_USERNAME=root/' .env
+        docker exec roadsathi_app sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=root/' .env
+        docker exec roadsathi_app sed -i 's/DB_HOST=.*/DB_HOST=db/' .env
+
         docker exec roadsathi_app composer install
         docker exec roadsathi_app php artisan key:generate
         docker exec roadsathi_app php artisan migrate --force
+
 
     # ✅ Login Docker Hub
     - name: Login Docker

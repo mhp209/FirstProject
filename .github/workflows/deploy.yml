@@ -98,11 +98,19 @@ jobs:
 
     # ✅ Start full stack (app + db + nginx)
     - name: Start Containers
-      run: docker compose up -d --build
+      # run: docker compose up -d --build
+        run: docker compose -f docker-compose.ci.yml up -d --build
+
 
     # ✅ Wait for MySQL to be ready
     - name: Wait for DB
       run: sleep 25
+
+      # ✅ Debug (IMPORTANT)
+    - name: Debug Containers
+      run: |
+        docker ps -a
+        docker logs roadsathi_app || true
 
     # ✅ Setup Laravel inside container
     # - name: Laravel Setup

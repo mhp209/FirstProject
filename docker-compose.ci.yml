@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    container_name: roadsathi_app
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: roadsathi_db
+    environment:
+      MYSQL_DATABASE: roadsathi
+      MYSQL_ROOT_PASSWORD: root

@@ -20,6 +20,68 @@
 #             cd /var/www
 #             bash deploy.sh
 
+# name: Docker CI/CD Laravel
+
+# on:
+#   push:
+#     branches: [ main ]
+
+# jobs:
+#   build-test-deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout Code
+#       uses: actions/checkout@v3
+
+#     # ✅ Build Docker Image
+#     - name: Build Docker Image
+#       run: docker build -t app-image .
+
+#     # ✅ Run container for testing
+#     - name: Run Container
+#       run: |
+#         docker run -d --name app_container app-image
+#         sleep 10
+
+#     # ✅ Run Laravel commands inside container
+#     - name: Run Tests / Setup
+#       run: |
+#         docker exec app_container cp .env.example .env
+#         docker exec app_container php artisan key:generate
+#         docker exec app_container php artisan migrate --force
+
+#     # ✅ Login to Docker Hub
+#     - name: Login Docker
+#       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+#     # ✅ Tag + Push Image
+#     - name: Push Image
+#       run: |
+#         docker tag app-image ${{ secrets.DOCKER_USERNAME }}/roadsathi
+#         docker push ${{ secrets.DOCKER_USERNAME }}/roadsathi
+
+#     # ✅ Deploy to AWS EC2
+#     - name: Deploy to EC2
+#       uses: appleboy/ssh-action@v1.0.0
+#       with:
+#         host: ${{ secrets.SERVER_IP }}
+#         username: ubuntu
+#         key: ${{ secrets.SERVER_SSH_KEY }}
+#         script: |
+#           docker pull ${{ secrets.DOCKER_USERNAME }}/roadsathi
+#           docker stop roadsathi_app || true
+#           docker rm roadsathi_app || true
+#           docker run -d -p 80:80 --name roadsathi_app ${{ secrets.DOCKER_USERNAME }}/roadsathi
+
+
+
+
+
+
+# new with composer
+
+
 name: Docker CI/CD Laravel
 
 on:
@@ -34,34 +96,32 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # ✅ Build Docker Image
-    - name: Build Docker Image
-      run: docker build -t app-image .
+    # ✅ Start full stack (app + db + nginx)
+    - name: Start Containers
+      run: docker-compose up -d --build
 
-    # ✅ Run container for testing
-    - name: Run Container
+    # ✅ Wait for MySQL to be ready
+    - name: Wait for DB
+      run: sleep 25
+
+    # ✅ Setup Laravel inside container
+    - name: Laravel Setup
       run: |
-        docker run -d --name app_container app-image
-        sleep 10
+        docker exec roadsathi_app cp .env.example .env
+        docker exec roadsathi_app php artisan key:generate
+        docker exec roadsathi_app php artisan migrate --force
 
-    # ✅ Run Laravel commands inside container
-    - name: Run Tests / Setup
-      run: |
-        docker exec app_container cp .env.example .env
-        docker exec app_container php artisan key:generate
-        docker exec app_container php artisan migrate --force
-
-    # ✅ Login to Docker Hub
+    # ✅ Login Docker Hub
     - name: Login Docker
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    # ✅ Tag + Push Image
-    - name: Push Image
+    # ✅ Build + Push Image
+    - name: Build & Push Image
       run: |
-        docker tag app-image ${{ secrets.DOCKER_USERNAME }}/roadsathi
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/roadsathi .
         docker push ${{ secrets.DOCKER_USERNAME }}/roadsathi
 
-    # ✅ Deploy to AWS EC2
+    # ✅ Deploy to EC2
     - name: Deploy to EC2
       uses: appleboy/ssh-action@v1.0.0
       with:
@@ -70,6 +130,8 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}
         script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/roadsathi
+
           docker stop roadsathi_app || true
           docker rm roadsathi_app || true
+
           docker run -d -p 80:80 --name roadsathi_app ${{ secrets.DOCKER_USERNAME }}/roadsathi

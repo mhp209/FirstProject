@@ -149,4 +149,4 @@ jobs:
           docker stop roadsathi_app || true
           docker rm roadsathi_app || true
 
-          docker run -d -p 80:80 --name roadsathi_app ${{ secrets.DOCKER_USERNAME }}/roadsathi
+          docker run -d -p 8080:80 --name roadsathi_app ${{ secrets.DOCKER_USERNAME }}/roadsathi

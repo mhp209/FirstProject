@@ -98,9 +98,9 @@ jobs:
 
     # ✅ Start full stack (app + db + nginx)
     - name: Start Containers
-      # run: docker compose up -d --build
-        run: docker compose -f docker-compose.ci.yml up -d --build
-
+      run: docker compose -f docker-compose.ci.yml up -d --build
+    
+    # run: docker compose up -d --build
 
     # ✅ Wait for MySQL to be ready
     - name: Wait for DB

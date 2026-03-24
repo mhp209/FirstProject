@@ -108,6 +108,7 @@ jobs:
     - name: Laravel Setup
       run: |
         docker exec roadsathi_app cp .env.example .env
+        docker exec roadsathi_app composer install
         docker exec roadsathi_app php artisan key:generate
         docker exec roadsathi_app php artisan migrate --force
 

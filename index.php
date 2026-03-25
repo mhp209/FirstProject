@@ -16,6 +16,17 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
+
+// ✅ Serve static files directly (FIX)
+if (php_sapi_name() === 'cli-server') {
+    $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $file = __DIR__ . $url;
+
+    if (is_file($file)) {
+        return false; // serve file directly
+    }
+}
+
 if (file_exists($maintenance = __DIR__.'/./storage/framework/maintenance.php')) {
     require $maintenance;
 }

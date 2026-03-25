@@ -9,20 +9,32 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Redirect Trailing Slashes If Not A Folder...
+    # Remove trailing slash (if not folder)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
-    # Send Requests To Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    # ✅ Serve existing files directly (IMPORTANT for CSS/JS/images)
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
 
-    RewriteCond %{HTTP_HOST} ^roadsathi\.in [NC]
-    RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://roadsathi.in/$1 [R,L]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Send everything else to Laravel
+    RewriteRule ^ index.php [L]
 </IfModule>
+
+# ✅ Force HTTPS (only when domain is set)
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_HOST} ^(www\.)?roadsathi\.in$ [NC]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://roadsathi.in%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+
+
+
 
 <IfModule mod_gzip.c>
   mod_gzip_on Yes
